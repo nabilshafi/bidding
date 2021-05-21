@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: bidding-service
+    main:
+      banner-mode: "off"
+    mvc:
+      dispatcher-options-request: true
+    jpa:
+      open-in-view: false
+server:
+  port: 8080
+bidders:
+  urls: ${BIDDER_SERVERS:http://localhost:8081,http://localhost:8082,http://localhost:8083}
