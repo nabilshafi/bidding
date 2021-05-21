@@ -2,26 +2,26 @@
 
 # Instruction
 
--git clone https://github.com/nabilshafi/bidding.git
+- git clone https://github.com/nabilshafi/bidding.git
 
--Go to project directory
+- Go to project directory
 
--Build project by run following command
+- Build project by run following command
 
--mvn package 
+- mvn package 
 
--Run project by execute following command
+- Run project by execute following command
 
--java -jar target/bidding-1.0.0.jar
+- java -jar target/bidding-1.0.0.jar
 
--Application can also be run by just importing pom.xml file in intelliJ and simply play it. 
+- Application can also be run by just importing pom.xml file in intelliJ and simply play it. 
 
 
 # Endpoints
 
--GET  http://localhost:8080/[id]?[key=value,...]
+- GET  http://localhost:8080/[id]?[key=value,...]
 
--eg: http://localhost:8080/4?a=5&b=3
+- eg: http://localhost:8080/4?a=5&b=3
 
 # Bidders
 
