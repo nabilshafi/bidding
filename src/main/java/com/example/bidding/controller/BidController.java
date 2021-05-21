@@ -3,13 +3,15 @@ package com.example.bidding.controller;
 import com.example.bidding.exception.IncompatibleParamException;
 import com.example.bidding.model.BidRequestDTO;
 import com.example.bidding.parser.RequestParamsParser;
-import com.example.bidding.service.BiddingServiceImpl;
+import com.example.bidding.service.BiddingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -24,7 +26,7 @@ public class BidController {
     private static final Logger LOGGER = LoggerFactory.getLogger(BidController.class);
 
     @Autowired
-    private BiddingServiceImpl biddingService;
+    private BiddingService biddingService;
 
     private final RequestParamsParser requestParamsParser = new RequestParamsParser();
 
