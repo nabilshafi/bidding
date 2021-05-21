@@ -1,6 +1,6 @@
 # bidding-application
 
-# Instructions:
+# Instruction
 
 -git clone https://github.com/nabilshafi/bidding.git
 
@@ -19,11 +19,13 @@
 
 # Endpoints
 
--GET
+-GET  http://localhost:8080/[id]?[key=value,...]
 
 -eg: http://localhost:8080/4?a=5&b=3
 
 # Bidders
+
 - Bidders address can be set inside application.yaml 
+- 
 - Bidders address can also be provided as environment variable. ex: BIDDER_SERVERS:http://localhost:8081
 
