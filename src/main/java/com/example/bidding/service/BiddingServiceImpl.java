@@ -16,9 +16,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.io.IOException;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.stream.Stream;
 
@@ -58,13 +56,18 @@ public class BiddingServiceImpl implements BiddingService {
     @Override
     public Bid fetchHighestBidder(BidRequestDTO bidRequestDTO)  {
         LOGGER.info("Reading bidders url from applicalion.yaml");
-        bidders = Objects.requireNonNull(environment.getProperty("bidders.urls")).split(",");
+        String biddersUrl = environment.getProperty("bidders.urls");
+        if(biddersUrl.isEmpty() || biddersUrl == null){
+            LOGGER.error("No bidder found");
+        }
+        bidders = biddersUrl.split(",");
+
+
         Bid maxBid = new Bid("", Integer.MIN_VALUE, "");
         for(String bidderUrl : bidders) {
             LOGGER.info("Forwarding incoming bid request to {}", bidderUrl );
             try {
                 String result = httpClientExecutor.execute(createPOSTRequest(bidRequestDTO, bidderUrl.trim()));
-                //bidList.add(Stream.of(result).map(bidResponseParser).findFirst().get());
                 Bid bid = Stream.of(result).map(bidResponseParser).findFirst().get();
                 if(bid.getBid() > maxBid.getBid()) {
                     maxBid = bid;
