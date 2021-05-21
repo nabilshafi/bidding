@@ -14,6 +14,8 @@
 
 -java -jar target/bidding-1.0.0.jar
 
+-Application can also be run by just importing pom.xml file in intelliJ and simply play it. 
+
 
 # Endpoints
 
